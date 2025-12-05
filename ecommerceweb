@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-Commerce Website</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f4f4;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: #111;
+            padding: 15px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+
+        .navbar a:hover {
+            background: #333;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: url("https://images.unsplash.com/photo-1512436991641-6745cdb1723f") center/cover;
+            height: 350px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 50px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            text-shadow: 2px 2px 4px black;
+        }
+
+        .hero button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            background: #ff9800;
+            color: white;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background: #ff6f00;
+        }
+
+        /* PRODUCT GRID */
+        .section-title {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 32px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 8px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-info h3 {
+            margin: 0;
+        }
+
+        .price {
+            color: green;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .buy-btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background: #111;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .buy-btn:hover {
+            background: #444;
+        }
+
+        /* CATEGORIES */
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 50px 0;
+        }
+
+        .category-box {
+            background: white;
+            width: 250px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+
+        .category-box:hover {
+            background: #ddd;
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            padding: 40px;
+            background: #222;
+            color: white;
+        }
+
+        .contact input, 
+        .contact textarea {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .contact button {
+            background: #ff9800;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact button:hover {
+            background: #ff6f00;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 20px;
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 600px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <div class="navbar">
+        <div class="logo"><h2>ShopNow</h2></div>
+        <div>
+            <a href="#products">Products</a>
+            <a href="#categories">Categories</a>
+            <a href="#contact">Contact</a>
+            <a href="#" onclick="openLogin()">Login</a>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <h1>Best Deals of the Season</h1>
+        <p>High-quality products at the lowest price</p>
+        <button onclick="scrollToProducts()">Shop Now</button>
+    </div>
+
+    <!-- CATEGORY SECTION -->
+    <h2 class="section-title" id="categories">Shop by Categories</h2>
+
+    <div class="categories">
+        <div class="category-box">📱 Mobiles</div>
+        <div class="category-box">💻 Laptops</div>
+        <div class="category-box">👟 Shoes</div>
+        <div class="category-box">⌚ Watches</div>
+        <div class="category-box">🎮 Gaming</div>
+    </div>
+
+    <!-- PRODUCT SECTION -->
+    <h2 class="section-title" id="products">Featured Products</h2>
+
+    <div class="products">
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1580894732444-8ecded6ec7fb">
+            <div class="product-info">
+                <h3>Wireless Headphones</h3>
+                <p class="price">Rs. 2,999</p>
+                <button class="buy-btn">Add To Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8">
+            <div class="product-info">
+                <h3>Gaming Laptop</h3>
+                <p class="price">Rs. 120,000</p>
+                <button class="buy-btn">Add To Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1595950653082-7c9b70a6e717">
+            <div class="product-info">
+                <h3>Running Shoes</h3>
+                <p class="price">Rs. 4,500</p>
+                <button class="buy-btn">Add To Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1503602642458-232111445657">
+            <div class="product-info">
+                <h3>Smart Watch</h3>
+                <p class="price">Rs. 3,999</p>
+                <button class="buy-btn">Add To Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f">
+            <div class="product-info">
+                <h3>DSLR Camera</h3>
+                <p class="price">Rs. 55,000</p>
+                <button class="buy-btn">Add To Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <div class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions? Send us a message!</p>
+        <input type="text" placeholder="Your Name"><br><br>
+        <input type="email" placeholder="Email"><br><br>
+        <textarea rows="5" placeholder="Message"></textarea><br><br>
+        <button>Send Message</button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 ShopNow – All Rights Reserved.
+    </footer>
+
+    <!-- LOGIN POPUP -->
+    <div id="loginModal" 
+         style="position: fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.6); 
+                display:none; justify-content:center; align-items:center;">
+        <div style="background:white; padding:30px; width:300px; border-radius:10px;">
+            <h3>Login</h3>
+            <input type="text" placeholder="Username" style="width:100%; padding:10px;"><br><br>
+        <input type="password" placeholder="Password" style="width:100%; padding:10px;"><br><br>
+            <button style="width:100%; padding:10px; background:#111; color:white;">
+                Login
+            </button><br><br>
+            <button onclick="closeLogin()" 
+                style="width:100%; padding:10px; background:#999; color:white;">
+                Cancel
+            </button>
+        </div>
+    </div>
+
+<script>
+    function scrollToProducts() {
+        document.getElementById("products").scrollIntoView({behavior: "smooth"});
+    }
+
+    function openLogin() {
+        document.getElementById("loginModal").style.display = "flex";
+    }
+
+    function closeLogin() {
+        document.getElementById("loginModal").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
